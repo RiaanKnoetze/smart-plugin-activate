@@ -1,0 +1,34 @@
+name: Release Asset Workflow
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install zip and rsync
+        run: sudo apt-get install zip rsync
+
+      - name: Create required directory structure
+        run: |
+          mkdir plugin-links
+          rsync -av --exclude='plugin-links' ./* plugin-links/
+
+      - name: Zip the project
+        run: zip -r plugin-links.zip plugin-links/
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./plugin-links.zip
+          asset_name: plugin-links.zip
+          asset_content_type: application/zip
