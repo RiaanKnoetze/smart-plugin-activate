@@ -1,14 +1,5 @@
 # Plugin Links
 
-**Contributors:** Riaan Knoetze  
-**Tags:** plugins, toolbar, admin  
-**Requires at least:** 5.0  
-**Tested up to:** 6.2  
-**Requires PHP:** 7.0  
-**Stable tag:** 1.0.0  
-**License:** GPLv2 or later  
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
-
 Quickly toggle plugin activation status from the toolbar.
 
 ## Description
@@ -34,11 +25,6 @@ Yes, the plugin is compatible with multisite installations.
 
 ### 1.0.0
 * Initial release.
-
-## Upgrade Notice
-
-### 1.0.0
-Initial release.
 
 ## License
 
