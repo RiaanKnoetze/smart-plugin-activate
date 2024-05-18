@@ -1,11 +1,11 @@
 /**
- * Plugin Links Admin Toolbar Script
+ * Smart Plugin Activate Admin Toolbar Script
  *
  * This script adjusts the max height of the plugin links menu in the WordPress admin toolbar
  * to fit within the viewport, ensuring it is fully visible and accessible.
  *
- * @package PluginLinks
- * @version 1.0.0
+ * @package SmartPluginActivate
+ * @version 1.0
  */
 
 (function ( window, undefined ) {
@@ -27,7 +27,7 @@
 			}
 
 			toolbarHeight = toolbar.clientHeight;
-			menuItem      = document.getElementById( 'wp-admin-bar-plugin-links' );
+			menuItem      = document.getElementById( 'wp-admin-bar-smart-plugin-activate' );
 			container     = menuItem.querySelector( '.ab-sub-wrapper' );
 
 			setMaxHeight();

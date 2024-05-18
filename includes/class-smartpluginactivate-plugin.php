@@ -1,12 +1,9 @@
 <?php
 /**
- * PluginLinks_Plugin Class.
+ * Smart Plugin Activate
  *
- * This class represents an individual plugin and provides methods to
- * retrieve its properties and status, as well as generate activation
- * and deactivation URLs.
- *
- * @package PluginLinks
+ * @package SmartPluginActivate
+ * @since 1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,11 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class PluginLinks_Plugin
+ * Class SmartPluginActivate_Plugin
  *
- * @package PluginLinks
+ * Represents a plugin and provides methods to manage its state.
+ *
+ * @since 1.1
  */
-class PluginLinks_Plugin {
+class SmartPluginActivate_Plugin {
 	/**
 	 * Plugin name.
 	 *
@@ -27,14 +26,14 @@ class PluginLinks_Plugin {
 	protected $name;
 
 	/**
-	 * Plugin file.
+	 * Plugin file path.
 	 *
 	 * @var string
 	 */
 	protected $file;
 
 	/**
-	 * Plugin status.
+	 * Plugin status (active/inactive).
 	 *
 	 * @var string
 	 */
@@ -48,10 +47,10 @@ class PluginLinks_Plugin {
 	protected $network_status;
 
 	/**
-	 * PluginLinks_Plugin constructor.
+	 * Constructor.
 	 *
-	 * @param string $file Plugin file.
-	 * @param array  $data Plugin data.
+	 * @param string $file The plugin file path.
+	 * @param array  $data Optional. Plugin data. Default empty array.
 	 */
 	public function __construct( $file, $data = array() ) {
 		$this->file = $file;
@@ -66,36 +65,36 @@ class PluginLinks_Plugin {
 	}
 
 	/**
-	 * Check if the plugin is active.
+	 * Checks if the plugin is active.
 	 *
-	 * @return bool
+	 * @return bool True if the plugin is active, false otherwise.
 	 */
 	public function is_active() {
 		return 'active' === $this->status;
 	}
 
 	/**
-	 * Get the plugin name.
+	 * Gets the plugin name.
 	 *
-	 * @return string
+	 * @return string The plugin name.
 	 */
 	public function get_name() {
 		return $this->name;
 	}
 
 	/**
-	 * Get the plugin file.
+	 * Gets the plugin file path.
 	 *
-	 * @return string
+	 * @return string The plugin file path.
 	 */
 	public function get_file() {
 		return $this->file;
 	}
 
 	/**
-	 * Check if the plugin is network related.
+	 * Checks if the plugin is network related.
 	 *
-	 * @return bool
+	 * @return bool True if the plugin is network related, false otherwise.
 	 */
 	public function is_network_related() {
 		return is_multisite() &&
@@ -104,12 +103,12 @@ class PluginLinks_Plugin {
 	}
 
 	/**
-	 * Get the links URL for the plugin.
+	 * Gets the URL to toggle the plugin's activation status.
 	 *
-	 * @param string $redirect Redirect URL.
-	 * @return string
+	 * @param string $redirect Optional. The redirect URL after toggling. Default empty string.
+	 * @return string The URL to toggle the plugin's activation status.
 	 */
-	public function get_links_url( $redirect = '' ) {
+	public function get_toggle_url( $redirect = '' ) {
 		$action = $this->is_active() ? 'deactivate' : 'activate';
 
 		$query_args = array(
@@ -118,7 +117,7 @@ class PluginLinks_Plugin {
 		);
 
 		if ( ! empty( $redirect ) ) {
-			$query_args['pluginlinks_redirect_to'] = rawurlencode( $redirect );
+			$query_args['smartpluginactivate_redirect_to'] = rawurlencode( $redirect );
 		}
 
 		return wp_nonce_url(
@@ -131,14 +130,14 @@ class PluginLinks_Plugin {
 	}
 
 	/**
-	 * Set the plugin status.
+	 * Sets the plugin status.
 	 */
 	protected function set_status() {
 		$this->status = is_plugin_active( $this->file ) ? 'active' : 'inactive';
 	}
 
 	/**
-	 * Set the network status for the plugin.
+	 * Sets the plugin network status.
 	 */
 	protected function set_network_status() {
 		if ( ! is_multisite() ) {

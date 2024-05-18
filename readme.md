@@ -2,15 +2,15 @@
 
 Quickly toggle plugin activation status from the toolbar.
 
-![plugin-links](https://github.com/RiaanKnoetze/plugin-links/assets/13743465/b2b4ed9d-5e6f-4ae1-9f0d-643f0b89fb06)
+![smart-plugin-activate](screenshot-1.png)
 
 ## Description
 
-Plugin Links is a WordPress plugin that allows administrators to quickly toggle the activation status of plugins directly from the admin toolbar. This enhances productivity by providing a quick and convenient way to manage plugins without navigating to the Plugins page.
+Smart Plugin Activate is a WordPress plugin that allows administrators to quickly toggle the activation status of plugins directly from the admin toolbar. This enhances productivity by providing a quick and convenient way to manage plugins without navigating to the Plugins page.
 
 ## Installation
 
-1. Upload the plugin files to the `/wp-content/plugins/plugin-links` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/smart-plugin-activate` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 
 ## Frequently Asked Questions
@@ -25,7 +25,11 @@ Yes, the plugin is compatible with multisite installations.
 
 ## Changelog
 
-### 1.0.0
+### 1.1
+* New: Full code refactor
+* New: Add "Active Plugins" menu item
+
+### 1.0
 * Initial release.
 
 ## License

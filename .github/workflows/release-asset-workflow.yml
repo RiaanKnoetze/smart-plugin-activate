@@ -17,11 +17,11 @@ jobs:
 
       - name: Create required directory structure
         run: |
-          mkdir plugin-links
-          rsync -av --exclude='plugin-links' ./* plugin-links/
+          mkdir smart-plugin-activate
+          rsync -av --exclude='smart-plugin-activate' ./* smart-plugin-activate/
 
       - name: Zip the project
-        run: zip -r plugin-links.zip plugin-links/
+        run: zip -r smart-plugin-activate.zip smart-plugin-activate/
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
@@ -29,6 +29,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./plugin-links.zip
-          asset_name: plugin-links.zip
+          asset_path: ./smart-plugin-activate.zip
+          asset_name: smart-plugin-activate.zip
           asset_content_type: application/zip
