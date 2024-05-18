@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! defined( 'PLUGINTOGGLE_URL' ) ) {
-	define( 'PLUGINTOGGLE_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'SPA_URL' ) ) {
+	define( 'SPA_URL', plugin_dir_url( __FILE__ ) );
 }
 
 if ( ! defined( 'PLUGINTOGGLE_DIR' ) ) {

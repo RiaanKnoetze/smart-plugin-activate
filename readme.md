@@ -1,4 +1,4 @@
-# Plugin Links
+# Smart Plugin Activate
 
 Quickly toggle plugin activation status from the toolbar.
 

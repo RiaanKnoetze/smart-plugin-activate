@@ -65,8 +65,8 @@ class SmartPluginActivate {
 	 * @since 1.0
 	 */
 	public function enqueue_assets() {
-		wp_enqueue_script( 'smart-plugin-activate', PLUGINTOGGLE_URL . 'assets/js/smart-plugin-activate.js', array(), '1.0', true );
-		wp_enqueue_style( 'smart-plugin-activate', PLUGINTOGGLE_URL . 'assets/css/smart-plugin-activate.css', array(), '1.0' );
+		wp_enqueue_script( 'smart-plugin-activate', SPA_URL . 'assets/js/smart-plugin-activate.js', array(), '1.0', true );
+		wp_enqueue_style( 'smart-plugin-activate', SPA_URL . 'assets/css/smart-plugin-activate.css', array(), '1.0' );
 	}
 
 	/**
